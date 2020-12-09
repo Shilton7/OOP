@@ -6,7 +6,7 @@ namespace ByteBankHerancaInterface.Funcionarios
 {
     public class Diretor : Funcionario
     {
-        public Diretor(string cpf) : base(cpf)
+        public Diretor(double salario, string cpf) : base(salario,cpf)
         {
 
         }
@@ -15,6 +15,12 @@ namespace ByteBankHerancaInterface.Funcionarios
         {
             //return Salario;
             return Salario + base.GetBonificacao();
+        }
+
+        public override void AumentarSalario()
+        {
+            Salario = Salario + (Salario * 0.15);
+            //Salario *= 1.15;
         }
 
     }

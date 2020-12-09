@@ -10,30 +10,36 @@ namespace ByteBankHerancaInterface
      
             GerenciadorBonificacao bonificacao = new GerenciadorBonificacao();
 
-            Funcionario funcionario = new Funcionario("123.784.154-70");
+            Funcionario funcionario = new Funcionario(2000, "123.784.154-70");
 
             funcionario.Nome = "Shilton";
-            funcionario.Salario = 2000;
             var valorBonificacao = funcionario.GetBonificacao();
             bonificacao.Registrar(funcionario);
 
-            Console.WriteLine(funcionario.Nome);
-            Console.WriteLine(funcionario.CPF);
-            Console.WriteLine(valorBonificacao);
-            Console.WriteLine(funcionario.GetTotalFuncionarios());
+            funcionario.AumentarSalario();
+            Console.WriteLine("Novo salário: " + funcionario.Salario);
 
-            Diretor diretor = new Diretor("544.877.154-19");
+
+            Console.WriteLine("Nome do funcionário: " + funcionario.Nome);
+            Console.WriteLine("CPF do funcionário: " + funcionario.CPF);
+            Console.WriteLine("Valor da Bonificação do funcionário: " + valorBonificacao);
+            Console.WriteLine("Total de funcionários: " + funcionario.GetTotalFuncionarios());
+            Console.WriteLine("---------------------------------------------------------------");
+
+            Diretor diretor = new Diretor(5000,"544.877.154-19");
 
             diretor.Nome = "Chefe";
-            diretor.Salario = 5000;
             bonificacao.Registrar(diretor);
 
-            Console.WriteLine(diretor.Nome);
-            Console.WriteLine(diretor.CPF);
-            Console.WriteLine(diretor.GetBonificacao());
+            diretor.AumentarSalario();
+            Console.WriteLine("Novo salário: " + diretor.Salario);
+
+            Console.WriteLine("Nome do diretor: " + diretor.Nome);
+            Console.WriteLine("CPF do diretor: " + diretor.CPF);
+            Console.WriteLine("Valor da Bonificação do diretor: " + diretor.GetBonificacao());
 
             Console.WriteLine("Total de Bonificações: " + bonificacao.GetTotalBonificacao());
-            Console.WriteLine(funcionario.GetTotalFuncionarios());
+            Console.WriteLine("Total de funcionários: " + funcionario.GetTotalFuncionarios());
             Console.ReadLine();
 
         }
