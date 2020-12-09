@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ByteBankHerancaInterface.Funcionarios
 {
-    public class Funcionario
+    public abstract class Funcionario
     {
         public string Nome { get; set; }
         public string CPF { get; private set; }
@@ -18,21 +18,14 @@ namespace ByteBankHerancaInterface.Funcionarios
             TotalFuncionarios++;
         }
 
-        public virtual double GetBonificacao()
-        {
-            return Salario * 0.10;
-        }
-
         public int GetTotalFuncionarios()
         {
             return TotalFuncionarios;
         }
 
-        public virtual void AumentarSalario()
-        {
-            Salario = Salario + (Salario * 0.1);
-            //Salario *= 1.1;
-        }
+        public abstract double GetBonificacao();
+
+        public abstract void AumentarSalario();
 
     }
 }

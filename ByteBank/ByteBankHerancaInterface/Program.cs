@@ -7,28 +7,33 @@ namespace ByteBankHerancaInterface
     {
         static void Main(string[] args)
         {
-     
+            Informar();
+        }
+
+        public static void Informar()
+        {
             GerenciadorBonificacao bonificacao = new GerenciadorBonificacao();
 
-            Funcionario funcionario = new Funcionario(2000, "123.784.154-70");
+            /* Gerente */
+            GerenteConta gerente = new GerenteConta(2000, "123.784.154-70");
 
-            funcionario.Nome = "Shilton";
-            var valorBonificacao = funcionario.GetBonificacao();
-            bonificacao.Registrar(funcionario);
+            gerente.Nome = "Shilton Gerente";
+            var valorBonificacao = gerente.GetBonificacao();
+            bonificacao.Registrar(gerente);
 
-            funcionario.AumentarSalario();
-            Console.WriteLine("Novo salário: " + funcionario.Salario);
+            gerente.AumentarSalario();
+            Console.WriteLine("Novo salário: " + gerente.Salario);
 
-
-            Console.WriteLine("Nome do funcionário: " + funcionario.Nome);
-            Console.WriteLine("CPF do funcionário: " + funcionario.CPF);
-            Console.WriteLine("Valor da Bonificação do funcionário: " + valorBonificacao);
-            Console.WriteLine("Total de funcionários: " + funcionario.GetTotalFuncionarios());
+            Console.WriteLine("Nome do gerente: " + gerente.Nome);
+            Console.WriteLine("CPF do gerente: " + gerente.CPF);
+            Console.WriteLine("Valor da Bonificação do gerente: " + valorBonificacao);
+            Console.WriteLine("Total de funcionários: " + gerente.GetTotalFuncionarios());
             Console.WriteLine("---------------------------------------------------------------");
 
-            Diretor diretor = new Diretor(5000,"544.877.154-19");
+            /* Diretor */
+            Diretor diretor = new Diretor(5000, "544.877.154-19");
 
-            diretor.Nome = "Chefe";
+            diretor.Nome = "Chefe Diretor";
             bonificacao.Registrar(diretor);
 
             diretor.AumentarSalario();
@@ -39,9 +44,8 @@ namespace ByteBankHerancaInterface
             Console.WriteLine("Valor da Bonificação do diretor: " + diretor.GetBonificacao());
 
             Console.WriteLine("Total de Bonificações: " + bonificacao.GetTotalBonificacao());
-            Console.WriteLine("Total de funcionários: " + funcionario.GetTotalFuncionarios());
+            Console.WriteLine("Total de funcionários: " + gerente.GetTotalFuncionarios());
             Console.ReadLine();
-
         }
     }
 }
